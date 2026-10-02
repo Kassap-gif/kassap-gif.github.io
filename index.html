@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AK-47 | Тарихы және құрылысы</title>
+<style>
+:root{
+  --olive:#5f694d; --olive2:#39432f; --gold:#c6a34a; --cream:#e9e4d3;
+  --glass:rgba(12,17,11,.76); --line:rgba(198,163,74,.65);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--cream);font-family:Segoe UI,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 20% 15%,rgba(121,132,91,.35),transparent 28%),
+    radial-gradient(circle at 80% 80%,rgba(50,64,42,.55),transparent 30%),
+    repeating-linear-gradient(125deg,#20291d 0 34px,#35412d 34px 72px,#293421 72px 105px,#4a5135 105px 130px);
+  min-height:100vh;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;
+  background-image:radial-gradient(#d9d2b7 1px,transparent 1px);
+  background-size:5px 5px;mix-blend-mode:soft-light;
+}
+.page{min-height:100vh;padding:28px 18px;display:none;position:relative}
+.page.active{display:block}
+.wrap{max-width:1100px;margin:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.logo{font-weight:800;letter-spacing:4px;color:#f2ead5}
+.badge{font-size:12px;border:1px solid var(--line);padding:7px 11px;border-radius:999px;background:rgba(0,0,0,.25)}
+.hero{
+  margin-top:65px;text-align:center;padding:35px 20px;border:1px solid var(--line);
+  border-radius:28px;background:linear-gradient(145deg,rgba(0,0,0,.74),rgba(25,32,22,.72));
+  box-shadow:0 25px 70px rgba(0,0,0,.38),inset 0 0 35px rgba(198,163,74,.05)
+}
+h1{font-size:clamp(38px,7vw,78px);margin:0 0 8px;letter-spacing:5px}
+.subtitle{color:#c9c7b7;font-size:18px}
+.weapon{width:min(900px,100%);margin:30px auto 15px;display:block;filter:drop-shadow(0 20px 18px rgba(0,0,0,.6))}
+.buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:20px}
+button{
+  border:1px solid var(--gold);background:linear-gradient(180deg,#596447,#303a29);
+  color:white;padding:14px 25px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;
+  box-shadow:0 7px 18px rgba(0,0,0,.25);transition:.2s
+}
+button:hover{transform:translateY(-2px);filter:brightness(1.15)}
+button.secondary{background:rgba(0,0,0,.25)}
+.back{margin-bottom:25px}
+.panel{
+  background:var(--glass);border:1px solid var(--line);border-radius:24px;padding:30px;
+  box-shadow:0 20px 50px rgba(0,0,0,.35)
+}
+h2{font-size:34px;margin-top:0}
+.history{line-height:1.75;font-size:17px;text-align:left}
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:25px}
+.event{padding:18px;border-left:3px solid var(--gold);background:rgba(255,255,255,.04);border-radius:10px}
+.year{font-size:25px;color:#e3c96f;font-weight:800}
+.notice{margin-top:20px;padding:13px 16px;border-radius:12px;background:rgba(198,163,74,.10);border:1px solid rgba(198,163,74,.35);font-size:14px;color:#d7d2c3}
+.parts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{
+  background:rgba(0,0,0,.43);border:1px solid rgba(198,163,74,.5);border-radius:18px;padding:18px;
+  transition:.2s
+}
+.card:hover{transform:translateY(-4px);border-color:var(--gold)}
+.card img{width:100%;height:180px;object-fit:contain;background:rgba(255,255,255,.03);border-radius:12px}
+.card h3{margin:13px 0 7px;color:#e8cc75}
+.card p{margin:0;color:#cfcdbf;line-height:1.5}
+.footer{margin-top:25px;text-align:center;font-size:12px;color:#aaa99d}
+a{color:#dfc56e}
+@media(max-width:600px){
+ .page{padding:18px 12px}.hero{margin-top:30px;padding:25px 12px}
+ .panel{padding:20px}.card img{height:150px}
+}
+</style>
+</head>
+<body>
+
+<section id="home" class="page active">
+<div class="wrap">
+  <div class="topbar"><div class="logo">FIELD ARCHIVE</div><div class="badge">AK-47 • EDUCATIONAL</div></div>
+  <div class="hero">
+    <div class="badge">1947 / ТАРИХИ ШОЛУ</div>
+    <h1>AK-47</h1>
+    <div class="subtitle">Калашников автоматының тарихы және негізгі бөлшектері</div>
+    <img class="weapon" src="assets/ak47.svg" alt="AK-47 стильдендірілген иллюстрациясы">
+    <div class="buttons">
+      <button onclick="show('start')">Бастау</button>
+      <button class="secondary" onclick="show('history')">Тарихы</button>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="history" class="page">
+<div class="wrap">
+  <button class="back secondary" onclick="show('home')">← Артқа</button>
+  <div class="panel">
+    <h2>AK-47 тарихы</h2>
+    <div class="history">
+      <p>AK-47 — Михаил Калашников құрастырған, 1947 жылдан бастау алатын кеңестік автомат конструкциясы. Wikimedia Commons деректерінде оның қызметке қабылдануы 1949 жыл деп көрсетіледі.</p>
+      <div class="timeline">
+        <div class="event"><div class="year">1947</div>Алғашқы конструкциялық әзірлеу кезеңі.</div>
+        <div class="event"><div class="year">1949</div>Кеңес әскері қаруды ресми түрде қабылдады.</div>
+        <div class="event"><div class="year">XX ғ.</div>Конструкция әртүрлі елдерде өндіріліп, кең тарады.</div>
+      </div>
+      <div class="notice">Бұл бет қарудың тарихы мен құрылымын таныстыруға арналған. Нақты қаруды бөлшектеу немесе жинау бойынша қадамдық нұсқаулық берілмейді.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="start" class="page">
+<div class="wrap">
+  <button class="back secondary" onclick="show('home')">← Артқа</button>
+  <div class="panel" style="text-align:center">
+    <h2>AK-47</h2>
+    <img class="weapon" src="assets/ak47.svg" alt="AK-47">
+    <button onclick="show('parts')">Жартылай шашу / жинақтау</button>
+    <div class="notice">Төмендегі бөлім негізгі бөлшектерді визуалды түрде таныстырады және олардың жалпы қызметін түсіндіреді.</div>
+  </div>
+</div>
+</section>
+
+<section id="parts" class="page">
+<div class="wrap">
+  <button class="back secondary" onclick="show('start')">← Артқа</button>
+  <div class="panel">
+    <h2>Негізгі бөлшектер</h2>
+    <div class="parts-grid">
+      <article class="card"><img src="assets/parts/barrel.svg" alt="Ұңғы иллюстрациясы"><h3>Ұңғы</h3><p>Оқтың қозғалысы өтетін негізгі түтік.</p></article>
+      <article class="card"><img src="assets/parts/magazine.svg" alt="Дүкен иллюстрациясы"><h3>Дүкен</h3><p>Оқ-дәрілерді орналастыруға арналған бөлік.</p></article>
+      <article class="card"><img src="assets/parts/receiver.svg" alt="Қабылдағыш иллюстрациясы"><h3>Қабылдағыш</h3><p>Негізгі механизмдер орналасатын корпус бөлігі.</p></article>
+      <article class="card"><img src="assets/parts/bolt.svg" alt="Затвор иллюстрациясы"><h3>Затвор</h3><p>Ату цикліндегі механизмдердің бірі; патронды камера аймағына орналастыру және құлыптау қызметіне қатысады.</p></article>
+      <article class="card"><img src="assets/parts/spring.svg" alt="Қайтармалы серіппе иллюстрациясы"><h3>Қайтармалы серіппе</h3><p>Қозғалмалы механизмдерді бастапқы қалыпқа қайтаруға қатысады.</p></article>
+      <article class="card"><img src="assets/parts/stock.svg" alt="Дүм иллюстрациясы"><h3>Дүм</h3><p>Қаруды ұстап тұруға және тірек жасауға арналған бөлік.</p></article>
+    </div>
+    <div class="notice">Иллюстрациялар осы жобаның ішінде сақталған, сондықтан сайт интернетсіз де суреттерді көрсете алады.</div>
+  </div>
+  <div class="footer">Тарихи мәліметтерді тексеру үшін Wikimedia Commons-тағы AK-47 материалдарына сүйенуге болады.</div>
+</div>
+</section>
+
+<script>
+function show(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
